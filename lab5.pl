@@ -46,14 +46,13 @@ sum_odd_numbers([H|T], Sum) :- odd(H), sum_odd_numbers(T, NewSum), Sum is NewSum
 %checks whether two elements, X and Y, are adjacent
 next_to(X, Y, List) :-
     append(_, [X, Y | _], List). %Y follows after X immediately
-next_to(X, Y, List) :-
-    append(_, [Y, X | _], List).%X follows after Y immediately
+
 
 %checks if two elements are not adjacent
 not_next_to(X, Y, List) :-
     %Y does not follow immediately after X and X does not follow immediately after Y
         \+ next_to(X, Y, List),
-        \+ next_to(Y, X, List).
+        \+ next_to(Y,X,List).
 
 %Main predicate:solve puzzle
 solve_puzzle(Houses, GreenIndex) :- 
